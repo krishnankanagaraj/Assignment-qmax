@@ -90,7 +90,7 @@ export default function PromiseQueue({searchTerm,setSearchTerm,term}) {
         setSearchTerm(term);
     }
 }
-},[fetchData,fetchPosts])
+},[fetchData,fetchPosts,setSearchTerm,searchTerm])
     return (
 <Fragment>
     <Navbar fetchPosts={fetchPosts} deleteQueue={deleteQueue} setDeleteQueue={setDeleteQueue} posts={posts} setPosts={setPosts} sort={sort} setSort={setSort} term={term} searchTerm={searchTerm} setSearchTerm={setSearchTerm}></Navbar>

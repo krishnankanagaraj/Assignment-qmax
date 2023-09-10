@@ -1,6 +1,5 @@
 import {Fragment, useState } from "react";
 import './App.css'
-import HomePage from "./HomePage";
 import PromiseQueue from "./PromiseQueue";
 
 function App() {
@@ -8,7 +7,6 @@ function App() {
   let term='';
   return (
     <Fragment>
-  {/* <HomePage searchTerm={searchTerm} setSearchTerm={setSearchTerm} term={term}></HomePage> */}
   <PromiseQueue searchTerm={searchTerm} setSearchTerm={setSearchTerm} term={term}></PromiseQueue>
     </Fragment>
     
