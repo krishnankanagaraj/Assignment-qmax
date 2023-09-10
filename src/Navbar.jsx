@@ -7,11 +7,13 @@ import RestoreIcon from '@mui/icons-material/Restore';
 
 // const ariaLabel = { 'aria-label': 'description' };
 
-const Navbar=({term,searchTerm,setSearchTerm,posts,setPosts,setDeleteQueue,deleteQueue,fetchPosts,setLoadMore})=>{   
-    const [err,setErr]=useState(false);
-    const[empty,setEmpty]=useState(false)
-    const [delConfirm,setDelConfirm]=useState(false);
-    const sugesstion=posts.map((post)=>{
+const Navbar=({term,searchTerm,setSearchTerm,posts,setPosts,setDeleteQueue,deleteQueue,fetchPosts,setLoadMore,filteredItems})=>{   
+  const [err,setErr]=useState(false);
+  const[empty,setEmpty]=useState(false)
+  const [delConfirm,setDelConfirm]=useState(false);
+
+
+  const sugesstion=posts.map((post)=>{
     const t=post.title.split(' ')
     let a; 
     for(let b of t){
@@ -37,7 +39,7 @@ const search=()=>{
         const updatedQueue = [...deleteQueue];
         while (updatedQueue.length > 0) {
           const postId = updatedQueue.pop();
-          setPosts((prevPosts) => prevPosts.filter((post,index) => index !== postId));
+          setPosts((prevPosts) => prevPosts.filter((post) => post.id !== postId));
         }
     
         setDeleteQueue([]);
@@ -64,7 +66,6 @@ const search=()=>{
   </div>
 <div className="outer-container">
 <div className="navbar-search">
-{/* <Input onChange={(e)=>{setSearchTerm(e.target.value);localStorage.setItem('search',e.target.value)}} value={searchTerm} style={{padding:'10px'}}placeholder="Enter a term to search" inputProps={ariaLabel}></Input> */}
 <Autocomplete
       freeSolo
       className="search-input"

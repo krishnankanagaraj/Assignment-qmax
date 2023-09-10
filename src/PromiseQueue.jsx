@@ -29,6 +29,7 @@ export default function PromiseQueue({searchTerm,setSearchTerm,term}) {
   const [deleteQueue, setDeleteQueue] = useState(localQueue?localQueue:[]);
   const [alreadyInQ,setAlreadyInQ]=useState(false);
   const [loadMore,setLoadMore]=useState(10);
+  // const[filteredItems,setFilterItems]=useState([]);
   
   const fetchPosts=useCallback(()=>{
     fetch('https://jsonplaceholder.typicode.com/posts').then(async res=>{
@@ -92,7 +93,7 @@ export default function PromiseQueue({searchTerm,setSearchTerm,term}) {
 },[fetchData,fetchPosts,setSearchTerm,searchTerm])
     return (
 <Fragment>
-    <Navbar setLoadMore={setLoadMore} fetchPosts={fetchPosts} deleteQueue={deleteQueue} setDeleteQueue={setDeleteQueue} posts={posts} setPosts={setPosts} sort={sort} setSort={setSort} term={term} searchTerm={searchTerm} setSearchTerm={setSearchTerm}></Navbar>
+    <Navbar setLoadMore={setLoadMore} fetchPosts={fetchPosts} deleteQueue={deleteQueue} setDeleteQueue={setDeleteQueue} filteredItems={filteredItems} posts={posts} setPosts={setPosts} sort={sort} setSort={setSort} term={term} searchTerm={searchTerm} setSearchTerm={setSearchTerm}></Navbar>
     <div className="App">
       {!loading&&<p style={{fontSize:'2rem',fontWeight:'bold',color:'red'}}>Loading Please Wait....</p>}
       {filteredItems.length<=0&&loading&&<p style={{fontSize:'2rem',fontWeight:'bold',color:'red'}}>No Results Found, Continue typing</p>}
@@ -117,7 +118,7 @@ export default function PromiseQueue({searchTerm,setSearchTerm,term}) {
         <IconButton onClick={()=>{
           let inx=deleteQueue.findIndex(t=>t===index);
           if(inx===-1){
-            setDeleteAlert(true);setSelectedIndex(index)
+            setDeleteAlert(true);setSelectedIndex(post.id)
           }
           else{
               setAlreadyInQ(true)
