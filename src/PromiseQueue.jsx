@@ -45,10 +45,8 @@ export default function PromiseQueue({searchTerm,setSearchTerm,term}) {
   const fetchComments=(postId)=>{
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`).then(async res=>{
       const data=await res.json();
-      console.log(data)
       setComments(data);
-      console.log(comments);
-    })
+    }).catch(err=>console.log(err))
   }
   const handelLike=(e)=>{
     e.target.style.color==='lightgray'?e.target.style.color='red':e.target.style.color='lightgray';
