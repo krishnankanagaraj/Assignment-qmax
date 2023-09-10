@@ -60,8 +60,6 @@ body{
 @media (max-width:700px) {
   .navbar-container {
     flex-direction: column;
-    position: fixed;
-    top: 0;
   }
   .title{
     margin-inline: auto;
