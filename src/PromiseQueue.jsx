@@ -27,7 +27,7 @@ export default function PromiseQueue({searchTerm,setSearchTerm,term}) {
   const[loading,setLoading]=useState(false);
   let localQueue=JSON.parse(localStorage.getItem('deleteQueue'))
   const [deleteQueue, setDeleteQueue] = useState(localQueue?localQueue:[]);
-  const [alreadyInQ,setAlreadyInQ]=useState('false');
+  const [alreadyInQ,setAlreadyInQ]=useState(false);
   const [loadMore,setLoadMore]=useState(10);
   
   const fetchPosts=useCallback(()=>{
