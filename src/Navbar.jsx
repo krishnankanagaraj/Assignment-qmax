@@ -1,9 +1,10 @@
 import { Fragment, useState,useEffect } from "react";
 import {Button, Dialog,DialogContent,DialogContentText,Typography} from "@mui/material";
-import { Search } from "@mui/icons-material";
+import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-
+import RestoreIcon from '@mui/icons-material/Restore';
+import {IconButton} from "@mui/material";
 
 // const ariaLabel = { 'aria-label': 'description' };
 
@@ -62,15 +63,12 @@ const search=()=>{
   <div className="title">
   <h2 style={{color:'red'}}>Q-max Task</h2>
   </div>
- 
-  
 <div className="outer-container">
 <div className="navbar-search">
 {/* <Input onChange={(e)=>{setSearchTerm(e.target.value);localStorage.setItem('search',e.target.value)}} value={searchTerm} style={{padding:'10px'}}placeholder="Enter a term to search" inputProps={ariaLabel}></Input> */}
 <Autocomplete
-      disablePortal
+      freeSolo
       className="search-input"
-      id="combo-box-demo"
       options={[...new Set(sugesstion)].sort()}
       clearOnBlur={false}
       onChange={(event, newValue) => {
@@ -86,14 +84,15 @@ const search=()=>{
         
       }}
       value={searchTerm}
-      renderInput={(params) => <TextField {...params} onChange={(e)=>{setSearchTerm(e.target.value);localStorage.setItem('search',e.target.value)}} label="Enter a Search term" />}
+      renderInput={(params) => <TextField {...params} 
+      onChange={(e)=>{setSearchTerm(e.target.value);localStorage.setItem('search',e.target.value)}} label="Enter a Search term " />}
     />
-<Button style={{width:'200px'}} onClick={search} variant="contained" startIcon={<span><Search style={{fontSize:'2rem'}}></Search></span>}>
-  <span className="input">Search</span>
+<Button style={{width:'200px',padding:'15px'}} onClick={search} variant="contained">
+  <SearchIcon></SearchIcon>&nbsp;<span className="input">Search</span>
 </Button>
 
-<Button style={{padding:'15px',width:'200px'}} onClick={searchReset} variant="contained" >
-  Refresh
+<Button style={{width:'200px',padding:'15px'}} onClick={searchReset} variant="contained" >
+  <RestoreIcon></RestoreIcon>&nbsp;<span className="input">Cache</span>
 </Button>
 </div>
 <div style={{marginTop:'10px',paddingLeft:'10px'}}>
