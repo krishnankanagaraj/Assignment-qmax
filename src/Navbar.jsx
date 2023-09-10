@@ -7,7 +7,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 // const ariaLabel = { 'aria-label': 'description' };
 
-const Navbar=({term,searchTerm,setSearchTerm,posts,setPosts,setDeleteQueue,deleteQueue,fetchPosts})=>{   
+const Navbar=({term,searchTerm,setSearchTerm,posts,setPosts,setDeleteQueue,deleteQueue,fetchPosts,setLoadMore})=>{   
     const [err,setErr]=useState(false);
     const[empty,setEmpty]=useState(false)
     const [delConfirm,setDelConfirm]=useState(false);
@@ -49,6 +49,7 @@ const search=()=>{
       localStorage.removeItem('search')
       setSearchTerm('')
       setDeleteQueue([]);
+      setLoadMore(10);
       setErr(false)
       fetchPosts();     
   }

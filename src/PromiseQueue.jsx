@@ -93,7 +93,7 @@ export default function PromiseQueue({searchTerm,setSearchTerm,term}) {
 },[fetchData,fetchPosts,setSearchTerm,searchTerm])
     return (
 <Fragment>
-    <Navbar fetchPosts={fetchPosts} deleteQueue={deleteQueue} setDeleteQueue={setDeleteQueue} posts={posts} setPosts={setPosts} sort={sort} setSort={setSort} term={term} searchTerm={searchTerm} setSearchTerm={setSearchTerm}></Navbar>
+    <Navbar setLoadMore={setLoadMore} fetchPosts={fetchPosts} deleteQueue={deleteQueue} setDeleteQueue={setDeleteQueue} posts={posts} setPosts={setPosts} sort={sort} setSort={setSort} term={term} searchTerm={searchTerm} setSearchTerm={setSearchTerm}></Navbar>
     <div className="App">
       {!loading&&<p style={{fontSize:'2rem',fontWeight:'bold',color:'red'}}>Loading Please Wait....</p>}
       {filteredItems.length<=0&&loading&&<p style={{fontSize:'2rem',fontWeight:'bold',color:'red'}}>No Results Found, Continue typing</p>}
