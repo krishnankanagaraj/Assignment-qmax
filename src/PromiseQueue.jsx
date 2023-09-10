@@ -121,8 +121,8 @@ export default function PromiseQueue({searchTerm,setSearchTerm,term}) {
             setDeleteAlert(true);setSelectedIndex(index)
           }
           else{
-              setAlreadyInQ(false)
-              setTimeout(()=>setAlreadyInQ(true),2000)
+              setAlreadyInQ(true)
+              setTimeout(()=>setAlreadyInQ(false),2000)
           }}}>
           <DeleteRounded style={{color:'red',fontSize:'2rem'}} ></DeleteRounded>
         </IconButton>
@@ -134,9 +134,6 @@ export default function PromiseQueue({searchTerm,setSearchTerm,term}) {
 })}
 <Button variant="contained" onClick={visibleItems}>Load More</Button>
     </div>
-    {!alreadyInQ&&<Stack sx={{ width: '50%' }} className="alert-box" spacing={2}>
-      <Alert severity="warning">Allready in delete queue</Alert>
-    </Stack>}
     <Dialog
         open={open}
         className="dialog"
@@ -186,6 +183,19 @@ export default function PromiseQueue({searchTerm,setSearchTerm,term}) {
         <Button variant="outlined" onClick={()=>{handleDelete(selectedIndex);setDeleteAlert(false)}}>Ok</Button>
         <Button variant="contained" onClick={()=>{setDeleteAlert(false)}}>Cancel</Button>
         </DialogActions>
+      </Dialog>
+      <Dialog open={alreadyInQ}
+        className="dialog"
+        onClose={()=>{setAlreadyInQ(false)}}
+        aria-labelledby="scroll-dialog-title"
+        aria-describedby="scroll-dialog-description">
+        <DialogContent>
+          <DialogContentText>
+            <Typography style={{fontSize:'2rem',color:'orange'}}>
+              Already in delete queue
+            </Typography>
+          </DialogContentText>
+        </DialogContent>
       </Dialog>
     </Fragment>
      );

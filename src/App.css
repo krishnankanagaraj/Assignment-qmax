@@ -7,7 +7,8 @@ body{
   font-family: poppins;
 }
 .App{
-  display:flex;justify-content:center;
+  display:flex;
+  justify-content:center;
   align-items:center;
   min-height:max-content;
   flex-wrap:wrap;
@@ -16,10 +17,6 @@ body{
 .comment{
   font-size:'1.05rem';
   font-weight: bold;
-}
-.dialog{
-  border-radius: 5px;
-  box-shadow: 0 0 10px 0 grey !important;
 }
 .comment-container{
   display: flex;
@@ -32,9 +29,6 @@ body{
   padding:15px;
   margin-block:10px;
   box-shadow:2px 2px 5px 0 grey;
-}
-.like{
-  color:red;
 }
 .navbar-container{
    margin-inline:auto;
@@ -87,12 +81,7 @@ body{
     flex-direction: column;
     padding-top: 35px;
   }
-  .alert-box{
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  }
+  
 }
 .navbar-search{
   min-width: 50%;
@@ -112,10 +101,4 @@ body{
   align-items:center;
   gap:10px;
   margin-top: 150px;
-}
-.alert-box{
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
 }
