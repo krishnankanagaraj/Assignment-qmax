@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  font-family: poppins;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App{
+  display:flex;justify-content:center;
+  align-items:center;
+  min-height:max-content;
+  flex-wrap:wrap;
+  padding: 25px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.comment{
+  font-size:'1.05rem';
+  font-weight: bold;
+}
+.dialog{
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 grey !important;
+}
+.comment-container{
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.card{
+  height:min-content;
+  width:90vw;
+  padding:15px;
+  margin-block:10px;
+  box-shadow:2px 2px 5px 0 grey;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.like{
+  color:red;
+}
+.navbar-container{
+   margin-inline:auto;
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   padding:15px;
+   margin-block:15px;
+   background:aliceblue;
+   border-radius:10px;
+   flex-direction:row;
+   width:90vw;
+}
+.navbar-search{
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.title{
+  margin-inline-start:15px;
+  margin-inline-end:auto;
+}
+.outer-container{
+  width:50%
+}
+@media (max-width:700px) {
+  .navbar-container {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  .title{
+    margin-inline: auto;
+    margin-bottom: 15px;
   }
+  .navbar-search{
+    width:100%;
+    /* justify-content: center; */
+  }
+  .outer-container{
+    width: 100%;
+  }
+  .input{
+    display: none;
+  }
+  .search-input{
+    width: 200px;
+  }
+  .delete{
+    flex-direction: column;
+  }
+  .alert-box{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  }
+}
+.navbar-search{
+  min-width: 50%;
+  gap: 15px;
+  display:flex;
+  justify-content:space-evenly;
+  align-items:center;
+}
+.search-input{
+  width:100%;
+}
+.delete{
+  font-size:1.25rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+.alert-box{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
 }
